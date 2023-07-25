@@ -10,6 +10,8 @@ export default async function handler(
 ) {
     // if you want to have the same url but have different verbs (post, get, patch etc)
     if (req.method === "POST") {
+
+        // Authentication
         const { firstName, lastName, email, phone, city, password } = req.body;
         const errors: string[] = []
         const prisma = new PrismaClient();
@@ -56,7 +58,8 @@ export default async function handler(
         });
 
         if (errors.length) {
-            return res.status(400).json({ errorMessage: errors[0] });
+            return res.status(400)
+                .json({ errorMessage: errors[0] });
         }
 
         const userWithEmail = await prisma.user.findUnique({
@@ -66,8 +69,7 @@ export default async function handler(
         });
 
         if (userWithEmail) {
-            return res
-                .status(400)
+            return res.status(400)
                 .json({ errorMessage: "Email is associated with another account" });
         }
 
@@ -84,16 +86,24 @@ export default async function handler(
             }
         })
 
+        // Authorization
+        // JWT Header
         const alg = "HS256";
+
+        // JWT Signature
         const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 
+        // Give payload to JOSE to handle authorization
         const token = await new jose.SignJWT({ email: user.email })
             .setProtectedHeader({ alg })
             .setExpirationTime('24h')
             .sign(secret)
 
-        res.status(200).json({
-            hello: token
-        });
+        return res.status(200)
+            .json({
+                token
+            });
     }
+
+    return res.status(404).json("Undefined endpoint")
 }
