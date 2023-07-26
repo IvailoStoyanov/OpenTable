@@ -4,6 +4,8 @@ import validator from "validator";
 import bcrypt from "bcrypt";
 import * as jose from "jose";
 
+const prisma = new PrismaClient();
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -14,7 +16,6 @@ export default async function handler(
         // Authentication
         const { firstName, lastName, email, phone, city, password } = req.body;
         const errors: string[] = []
-        const prisma = new PrismaClient();
 
         const validationSchema = [
             {
