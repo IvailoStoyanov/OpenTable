@@ -4,8 +4,14 @@ import { AuthenticationContext } from "../app/context/AuthenticationContext";
 
 const useAuth = () => {
     const { data, error, loading, setAuthState } = useContext(AuthenticationContext);
-    
-    const signin = async ({ email, password }: { email: string, password: string }) => {        
+
+    const signin = async ({
+        email,
+        password
+    }: {
+        email: string,
+        password: string
+    }, handleClose: () => void) => {
         setAuthState({
             data: null,
             error: null,
@@ -21,12 +27,12 @@ const useAuth = () => {
                 data: response.data,
                 error: null,
                 loading: false,
-            })
+            });
+            handleClose();
 
         } catch (error: any) {
-            console.log(error);
             console.log('THIS ?', error.response.data.errorMessage);
-            
+
             setAuthState({
                 data: null,
                 error: error.response.data.errorMessage,
