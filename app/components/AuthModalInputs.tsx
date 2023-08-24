@@ -14,8 +14,6 @@ interface Props {
 }
 
 export default function AuthModalInputs({ inputs, handleChangeInput, isSignin }: Props) {
-    console.log(isSignin);
-
     return (
         <div>
             {!isSignin && <div className="my-3 flex justify-between text-sm">
@@ -35,7 +33,8 @@ export default function AuthModalInputs({ inputs, handleChangeInput, isSignin }:
                     onChange={handleChangeInput}
                     name='lastName'
                 />
-            </div>}
+            </div>
+            }
             <div className="my-3 flex justify-between text-sm">
                 <input
                     type="email"
@@ -46,25 +45,27 @@ export default function AuthModalInputs({ inputs, handleChangeInput, isSignin }:
                     name='email'
                 />
             </div>
+            {!isSignin &&
+                <div className="my-3 flex justify-between text-sm">
+                    <input
+                        type="text"
+                        className="border rounded p-2 py-3 w-[49%] bg-white"
+                        placeholder='Phone'
+                        value={inputs.phone}
+                        onChange={handleChangeInput}
+                        name='phone'
+                    />
+                    <input
+                        type="text"
+                        className="border rounded p-2 py-3 w-[49%] bg-white"
+                        placeholder='City'
+                        value={inputs.city}
+                        onChange={handleChangeInput}
+                        name='city'
+                    />
+                </div>
+            }
             <div className="my-3 flex justify-between text-sm">
-                <input
-                    type="text"
-                    className="border rounded p-2 py-3 w-[49%] bg-white"
-                    placeholder='Phone'
-                    value={inputs.phone}
-                    onChange={handleChangeInput}
-                    name='phone'
-                />
-                <input
-                    type="text"
-                    className="border rounded p-2 py-3 w-[49%] bg-white"
-                    placeholder='City'
-                    value={inputs.city}
-                    onChange={handleChangeInput}
-                    name='city'
-                />
-            </div>
-            {!isSignin && <div className="my-3 flex justify-between text-sm">
                 <input
                     type="password"
                     className="border rounded p-2 py-3 w-full bg-white"
@@ -73,7 +74,7 @@ export default function AuthModalInputs({ inputs, handleChangeInput, isSignin }:
                     onChange={handleChangeInput}
                     name='password'
                 />
-            </div>}
+            </div>
         </div>
     )
 }
