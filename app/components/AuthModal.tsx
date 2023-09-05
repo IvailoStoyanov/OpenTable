@@ -7,6 +7,7 @@ import AuthModalInputs from './AuthModalInputs';
 import useAuth from '../../hooks/useAuth';
 import { AuthenticationContext } from '../context/AuthenticationContext';
 import { Alert, CircularProgress } from '@mui/material';
+import { type } from 'os';
 
 const style = {
     position: 'absolute' as 'absolute',
@@ -23,7 +24,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const { signin } = useAuth();
+    const { signin, signup } = useAuth();
     const { loading, data, error } = useContext(AuthenticationContext);
 
     const [inputs, setInputs] = useState({
@@ -61,6 +62,8 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
     const handleClick = () => {
         if (isSignin) {
             signin({ email: inputs.email, password: inputs.password }, handleClose);
+        } else {
+            signup(inputs, handleClose);
         }
     }
 
@@ -88,6 +91,7 @@ export default function AuthModal({ isSignin }: { isSignin: boolean }) {
                                 <p className='text-sm'>
                                     {isSignin ? 'Sign in' : 'Create Account'}
                                 </p>
+                                <p>{data?.firstName} {data?.lastName}</p>
                             </div>
                             <div className="m-auto">
                                 <h2 className='text-2xl font-light text-center'>
