@@ -7,7 +7,6 @@ import AuthModalInputs from './AuthModalInputs';
 import useAuth from '../../hooks/useAuth';
 import { AuthenticationContext } from '../context/AuthenticationContext';
 import { Alert, CircularProgress } from '@mui/material';
-import { type } from 'os';
 
 const style = {
     position: 'absolute' as 'absolute',
