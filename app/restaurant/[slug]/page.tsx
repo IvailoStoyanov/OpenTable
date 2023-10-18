@@ -53,13 +53,17 @@ export default async function RestaurantDetails({ params }: { params: { slug: st
             <div className="bg-white w-[70%] rounded p-3 shadow">
                 <RestaurantNavBar slug={restaurant.slug} />
                 <Titel name={restaurant.name} />
-                <Rating reviews={restaurant.reviews}/>
+                <Rating reviews={restaurant.reviews} />
                 <Description description={restaurant.description} />
                 <Images images={restaurant.images} />
                 <Reviews reviews={restaurant.reviews} />
             </div>
             <div className="w-[27%] relative text-reg">
-                <ReservationCard openTime={restaurant.open_time} closeTime={restaurant.close_time}/>
+                <ReservationCard
+                    openTime={restaurant.open_time}
+                    closeTime={restaurant.close_time}
+                    slug={restaurant.slug}
+                />
             </div>
         </>
     )
