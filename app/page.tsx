@@ -17,7 +17,6 @@ export interface RestaurantCardType {
 
 const fetchRestaurants = async (): Promise<RestaurantCardType[]> => {
   const restaurants = await prisma.restaurant.findMany({
-    // selectively pick the data you want. Dont get all the restaurant information
     select: {
       id: true,
       name: true,
