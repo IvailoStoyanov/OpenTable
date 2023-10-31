@@ -34,8 +34,6 @@ const useAuth = () => {
             handleClose();
 
         } catch (error: any) {
-            console.log('THIS ?', error.response.data.errorMessage);
-
             setAuthState({
                 data: null,
                 error: error.response.data.errorMessage,
@@ -84,8 +82,6 @@ const useAuth = () => {
             handleClose();
 
         } catch (error: any) {
-            console.log('THIS ?', error.response.data.errorMessage);
-
             setAuthState({
                 data: null,
                 error: error.response.data.errorMessage,
