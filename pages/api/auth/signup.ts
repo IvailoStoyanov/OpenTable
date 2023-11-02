@@ -13,8 +13,6 @@ export default async function handler(
 ) {
     // if you want to have the same url but have different verbs (post, get, patch etc)
     if (req.method === "POST") {
-
-        // Authentication
         const { firstName, lastName, email, phone, city, password } = req.body;
         const errors: string[] = []
 
