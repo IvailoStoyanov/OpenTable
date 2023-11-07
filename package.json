@@ -37,6 +37,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "netlify-cli": "^17.1.0",
     "prisma": "^4.16.2"
   }
 }
