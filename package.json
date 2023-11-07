@@ -38,6 +38,7 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
+    "@types/validator": "^13.11.5",
     "netlify-cli": "^17.1.0",
     "prisma": "^4.16.2"
   }
