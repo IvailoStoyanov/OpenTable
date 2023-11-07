@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   // time in seconds of no pages generating during static generation before timing out
-  staticPageGenerationTimeout: 100,
+  staticPageGenerationTimeout: 180,
 }
 
 module.exports = nextConfig
