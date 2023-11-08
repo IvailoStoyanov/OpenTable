@@ -111,7 +111,7 @@ export default function ReservationCard({
                                 <p className="text-sm font-bold">
                                     {convertToDisplayTime(time.time as Time)}
                                 </p>
-                            </Link> : <p className="bg-gray-300 p-2 w-24 mb-3 rounded mr-3"></p>
+                            </Link> : <p className="bg-gray-300 p-2 w-24 mb-3 rounded mr-3 h-8"></p>
                         })}
                     </div>
                 </div>
