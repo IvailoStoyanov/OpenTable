@@ -69,7 +69,7 @@ export default function ReservationCard({
                 <label htmlFor="">Party size</label>
                 <select name="" className="py-3 border-b font-light bg-white" id="" value={partySize} onChange={e => setPartySize(e.target.value)}>
                     {parySizes.map(party =>
-                        <option value={party.value}>{party.label}</option>
+                        <option value={party.value} key={`key${party.value}`}>{party.label}</option>
                     )}
                 </select>
             </div>
@@ -88,7 +88,7 @@ export default function ReservationCard({
                     <label htmlFor="">Time</label>
                     <select name="" id="" className="py-3 border-b font-light bg-white" value={time} onChange={e => setTime(e.target.value)}>
                         {filterTimeByRestaurantOpenWindow().map(time => (
-                            <option value={time.time}>{time.displayTime}</option>
+                            <option value={time.time} key={`key${time.time}`}>{time.displayTime}</option>
                         ))}
                     </select>
                 </div>
@@ -107,11 +107,17 @@ export default function ReservationCard({
                     <p className="text-reg">Select a Time</p>
                     <div className="flex flex-wrap mt-2">
                         {data.map(time => {
-                            return time.available ? <Link href={`/reserve/${slug}?date=${day}T${time.time}&partySize=${partySize}`} className="bg-red-600 cursor-pointer p-2 w-24 text-center text-white mb-3 rounded mr-3">
-                                <p className="text-sm font-bold">
-                                    {convertToDisplayTime(time.time as Time)}
-                                </p>
-                            </Link> : <p className="bg-gray-300 p-2 w-24 mb-3 rounded mr-3 h-8"></p>
+                            return time.available ?
+                                <Link
+                                    href={`/reserve/${slug}?date=${day}T${time.time}&partySize=${partySize}`}
+                                    className="bg-red-600 cursor-pointer p-2 w-24 text-center text-white mb-3 rounded mr-3"
+                                    key={`key${time.time}`}
+                                >
+                                    <p className="text-sm font-bold">
+                                        {convertToDisplayTime(time.time as Time)}
+                                    </p>
+                                </Link> :
+                                <p className="bg-gray-300 p-2 w-24 mb-3 rounded mr-3 h-8" key={`key${time.time}`}></p>
                         })}
                     </div>
                 </div>
