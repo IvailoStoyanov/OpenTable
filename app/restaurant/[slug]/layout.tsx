@@ -10,7 +10,7 @@ export default function RestaurantLayout({
     return (
         <>
             <Header name={params.slug} />
-            <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11">
+            <div className="flex m-auto w-2/3 justify-between items-start 0 -mt-11 flex-col md:flex-row">
                 {children}
             </div>
         </>

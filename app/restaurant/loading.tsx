@@ -13,7 +13,7 @@ export default function Loading() {
                         <p className="mr-7">Menu</p>
                     </nav>
 
-                    <div className="mt-4 border-b pb-6 animate-pulse bg-slate-200 w-[400px] h-16 rounded"></div>
+                    <div className="mt-4 border-b pb-6 animate-pulse bg-slate-200 md:w-[400px] h-16 rounded"></div>
 
                     <div className="flex items-end animate-pulse">
                         <div className="ratings mt-2 flex items-center">

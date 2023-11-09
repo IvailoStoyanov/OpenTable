@@ -60,7 +60,7 @@ export default function Form({
     }
 
     return (
-        <div className="mt-10 flex flex-wrap justify-between w-[660px]">
+        <div className="mt-10 flex flex-wrap justify-between md:w-[660px]">
             {didBook ? <div>
                 <h1>You are all booked up</h1>
                 <p>Enjoy your reservation!</p>

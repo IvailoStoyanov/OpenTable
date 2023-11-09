@@ -61,7 +61,7 @@ export default function ReservationCard({
     }
 
     return (
-        <div className="fixed w-[15%] bg-white rounded p-3 shadow">
+        <div className="md:fixed md:w-[15%] bg-white rounded p-3 shadow">
             <div className="text-center border-b pb-2 font-bold">
                 <h4 className="mr-7 text-lg">Make a Reservation</h4>
             </div>
@@ -79,7 +79,7 @@ export default function ReservationCard({
                     <DatePicker
                         selected={selectedDate}
                         onChange={handleChangeDate}
-                        className="py-3 border-b font-light text-reg w-28 bg-white"
+                        className="py-3 border-b font-light text-reg w-24 bg-white"
                         dateFormat="MMMM d"
                         wrapperClassName="w-[48%]"
                     />
