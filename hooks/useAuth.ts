@@ -22,7 +22,7 @@ const useAuth = () => {
             loading: true,
         });
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/signin', {
+            const response = await axios.post('https://open-table-clone.netlify.app/api/auth/signin', {
                 email,
                 password
             })
@@ -66,7 +66,7 @@ const useAuth = () => {
             loading: true,
         });
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/signup', {
+            const response = await axios.post('https://open-table-clone.netlify.app/api/auth/signup', {
                 email,
                 password,
                 firstName,
